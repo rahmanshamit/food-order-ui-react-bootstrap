@@ -24,7 +24,7 @@ function Product(props)  {
             <Card.Title>{title}</Card.Title>
             <Card.Text>{striptags(body)}</Card.Text>
             <Card.Text>${price}</Card.Text>
-            <Button variant="success" onClick={onAdd}>Add To Cart</Button>
+            <Button variant="success" onClick={() => onAdd({title})}>Add To Cart</Button>
           </Card.Body>
           </Card>
       </div>
