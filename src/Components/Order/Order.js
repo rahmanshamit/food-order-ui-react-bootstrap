@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TopNavbar from '../Navbar/Navbar.js';
 import Main from './Main.js';
@@ -17,15 +18,18 @@ function Order() {
    async componentDidMount() function to set the state
  */
   const products = data['products'];
-  const product_list = products.filter(product => product.title !== "Vitamin A")
-  const cartItems = [];
+  const product_list = products.filter(product => product.title !== "Vitamin A");
+  const [cartItems, setCart] = useState([]);
 
-  const onAdd = (product) => {
-    /*implement*/
+  const onAdd = (product_title) => {
+    setCart([...cartItems, product_title])
+    console.log(cartItems)
   };
 
-  const onRemove = (product) => {
-    /*implement*/
+  const onRemove = (product_title) => {
+    setCart(
+      cartItems.filter((product) => product !== product_title)
+    );
   };
 
   return (
